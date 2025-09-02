@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SimuPhysics</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Font Awesome (for icons) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Top: Shortcuts -->
+      <div class="shortcuts">
+        <button class="new-chat" title="New Chat">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <button class="search-shortcut" title="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button class="settings-shortcut" title="Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <button class="profile-shortcut" title="Profile">
+          <i class="fa-solid fa-user"></i>
+        </button>
+      </div>
+
+      <!-- Middle: Chat history -->
+      <div class="chat-history">
+        <!-- Empty initially; JS will add items here -->
+      </div>
+
+      <!-- Bottom: Profile -->
+      <div class="sidebar-bottom">
+        <div class="profile">
+          <i class="fa-regular fa-user"></i>
+          <span id="display-name">nikki</span>
+        </div>
+        <div class="profile-actions">
+          <i class="fa-solid fa-gear" title="Settings"></i>
+          <i class="fa-solid fa-right-from-bracket" title="Logout"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+      <!-- Initial Screen -->
+      <div class="content" id="initial-content">
+        <h1 class="app-title">SimuPhysics</h1>
+        <div class="search-container">
+          <div class="search-box">
+            <input type="text" id="search-input" placeholder="Generate the simulations " />
+            <button id="search-button">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Simulation Screen -->
+      <div class="content hidden" id="simulation-content">
+        <div class="prompt-display">
+          <span id="prompt-text"></span>
+        </div>
+
+        <!-- Simulation container -->
+        <div class="simulation-container">
+          <div id="simulation-placeholder"></div>
+        </div>
+
+        <!-- Toggle Play/Pause -->
+        <div class="controls">
+          <button id="toggle-btn">
+            <i class="fa-solid fa-play"></i> Play
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Panels & Overlay (for real functionality) ===== -->
+  <div id="overlay" class="overlay hidden"></div>
+
+  <!-- Quick Search Modal -->
+  <div id="search-modal" class="modal hidden">
+    <h3>Quick Search</h3>
+    <input id="quick-search-input" type="text" placeholder="Type a topic…"/>
+    <div class="actions">
+      <button id="quick-search-cancel" class="secondary">Cancel</button>
+      <button id="quick-search-go">Search</button>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="modal hidden">
+    <h3>Settings</h3>
+    <div class="setting-row">
+      <button id="clear-history-btn" class="danger">
+        <i class="fa-solid fa-trash-can"></i> Clear chat history
+      </button>
+    </div>
+    <div class="actions">
+      <button class="secondary" id="settings-close">Close</button>
+    </div>
+  </div>
+
+  <!-- Profile Modal -->
+  <div id="profile-modal" class="modal hidden">
+    <h3>Profile</h3>
+    <label for="name-input" class="field-label">Display name</label>
+    <input id="name-input" type="text" placeholder="Your name"/>
+    <div class="actions">
+      <button class="secondary" id="profile-cancel">Cancel</button>
+      <button id="save-name-btn">Save</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="matter.js"></script>
+  <script src="p5.js"></script>
+  <script src="new.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

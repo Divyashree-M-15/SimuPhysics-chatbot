@@ -1,0 +1,363 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #343541;
+    color: #ECECF1;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 240px;
+    background-color: #202123;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    color: #ECECF1;
+}
+
+/* Top shortcuts */
+.sidebar-top {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.sidebar-btn, .new-chat {
+    width: 40px;
+    height: 40px;
+    background-color: #2A2B32;
+    border: 1px solid #4D4D4F;
+    border-radius: 6px;
+    color: #8E8EA0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+.sidebar-btn:hover, .new-chat:hover {
+    background-color: #343541;
+    color: #ECECF1;
+}
+
+/* Chat history */
+.chat-history {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;  /* ✅ Scrollable */
+    margin-top: 10px;
+}
+.chat-item {
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    transition: background 0.2s;
+    color: #ECECF1;
+    font-size: 14px;
+}
+.chat-item:hover {
+    background: #3a3f4b;
+}
+
+/* Profile section */
+.sidebar-bottom {
+    margin-top: auto;
+    border-top: 1px solid #4D4D4F;
+    padding-top: 12px;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+.profile-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.profile-actions i:hover {
+    color: #ffffff;
+}
+
+/* Main Content Styles */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #4D4D4F;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Removed upgrade button */
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.welcome-text {
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #40414F;
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #ECECF1;
+    font-size: 16px;
+    outline: none;
+    padding: 8px 0;
+}
+
+#search-input::placeholder {
+    color: #8E8EA0;
+}
+
+#search-button {
+    background: transparent;
+    border: none;
+    color: #8E8EA0;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px;
+    transition: color 0.3s;
+}
+
+#search-button:hover {
+    color: #ECECF1;
+}
+
+/* Simulation Content Styles */
+.hidden {
+    display: none;
+}
+
+#simulation-content {
+    padding-top: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.prompt-display {
+    width: 100%;
+    max-width: 700px;
+    background-color: #40414F;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.simulation-container {
+    width: 600px;
+    height: 300px;
+    background-color: #000000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 1px solid #4D4D4F;
+}
+
+.simulation-placeholder {
+    color: #8E8EA0;
+    text-align: center;
+}
+
+/* Simulation view search bar */
+.simulation-search {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.simulation-search .search-box {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.simulation-search input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.simulation-search button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.simulation-search button:hover {
+    color: #333;
+}
+
+.controls {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;  /* center the button */
+    align-items: center;
+}
+
+.controls button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* space between icon and text */
+}
+
+.controls button:hover {
+    background: #0056b3;
+}
+/* Shortcuts layout (uses your existing button styles) */
+.shortcuts {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* Overlay & Modal */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1000;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 420px);
+  background: #202123;
+  color: #ECECF1;
+  border: 1px solid #4D4D4F;
+  border-radius: 10px;
+  padding: 16px;
+  z-index: 1001;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.modal h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.modal .field-label {
+  display: block;
+  font-size: 13px;
+  color: #b1b1bd;
+  margin-bottom: 6px;
+}
+
+.modal input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #4D4D4F;
+  background: #343541;
+  color: #ECECF1;
+  outline: none;
+}
+
+.modal .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.modal button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal button.secondary {
+  background: #2A2B32;
+  color: #ECECF1;
+}
+
+.modal button.danger {
+  background: #b31d2c;
+}
+
+/* Setting row spacing */
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
