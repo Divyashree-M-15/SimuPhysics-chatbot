@@ -276,11 +276,28 @@ body {
 .controls button:hover {
     background: #0056b3;
 }
-/* Shortcuts layout (uses your existing button styles) */
+
+/* Shortcuts layout */
 .shortcuts {
   display: flex;
   gap: 10px;
   margin-bottom: 12px;
+}
+
+/* Sidebar shortcut buttons (icons only, no background) */
+.shortcuts button {
+  background: none;        /* remove white background */
+  border: none;            /* no border */
+  padding: 6px;            /* small clickable area */
+  color: #fff;             /* white icons */
+  font-size: 18px;         /* icon size */
+  cursor: pointer;
+  border-radius: 6px;      /* still rounded hover effect */
+  transition: background 0.2s ease;
+}
+
+.shortcuts button:hover {
+  background: rgba(255, 255, 255, 0.1); /* subtle hover highlight */
 }
 
 /* Overlay & Modal */
